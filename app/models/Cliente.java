@@ -1,6 +1,10 @@
 package models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 import play.db.jpa.Model;
 
@@ -12,5 +16,8 @@ public class Cliente extends Model{
 	public String email;
 	public String senha;
 	public String preferenciaGenero;
-	
+	public String endereco;
+	@OneToMany
+	@JoinColumn(name="idCompra")
+	public List<Compra> listaCompras;
 }

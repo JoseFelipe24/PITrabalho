@@ -2,8 +2,11 @@ package controllers;
 
 import java.util.List;
 
+import models.Bibliotecarios;
 import models.Cliente;
+import models.Compra;
 import models.Livro;
+import models.Setores;
 import play.mvc.Controller;
 
 public class Clientes extends Controller{
@@ -40,4 +43,16 @@ public class Clientes extends Controller{
 		renderTemplate("Livros/form.html", c);
 		
 	}	
+	public static void CancelarCompra(Long idCliente, Long idCompra) {
+		
+		Cliente c = Cliente.findById(idCliente);
+		Compra comp1 = Compra.findById(idCompra);
+		
+		c.listaCompras.remove(comp1);
+		
+		c.save();
+		comp1.delete();
+		
+		listar(null);
+	}
 }
