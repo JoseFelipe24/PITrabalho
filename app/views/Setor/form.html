@@ -1,0 +1,52 @@
+#{extends 'main.html' /}
+
+#{if s}
+	#{set title:'Edição de Setor' /}
+#{/if}
+#{else}
+	#{set title:'Cadastro de setor' /}
+#{/else}
+<br></br>
+<center>
+<h2 class="text-success">#{get 'title' /}</h2>
+</center>
+<div class="container">
+
+ <form class="row g-3" action="@{Setor.salvar}">
+
+ <input type="hidden" name="s.id" value="${s?.id}"/>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Nome:</label>
+
+    <input type="text" class="form-control" id="inputEmail4" name="s.nome" value="${s?.nome}">
+  </div>
+
+ #{if s?.id}
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Funcionarios:</label>
+    <select name="idBibliotecario">
+       <option></option>
+       
+      
+       
+      #{list items:bibliotecarios1, as:'b'}
+         <option value="${b.id}">${b.nome}</option>
+      #{/list}
+    </select>
+  </div>
+ #{/if}
+ 
+ #{if s}
+	 <div class="col-12">
+    <button type="submit" class="btn btn-success">Editar</button>
+  </div>
+#{/if}
+#{else}
+	 <div class="col-12">
+    <button type="submit" class="btn btn-success">Cadastrar</button>
+  </div>
+#{/else}
+
+ </form>
+
+ </div>

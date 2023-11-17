@@ -1,0 +1,110 @@
+<!-- se houver um usuario logado o menu vai mudar e dar acesso a todas as outras páginas -->
+#{if session['Bibliotecarios.email']}
+
+#{extends 'main.html' /}
+
+#{/if}
+
+#{else}
+	  	
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de funcionarios</title>
+
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+       		<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+		  <div class="container">
+		    <a class="navbar-brand" href="#">Livraria (Administração)</a>
+		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		      <div class="navbar-nav">
+
+		        <a class="nav-link" href="@{Login.loginn}">Login</a>
+
+		        
+		      </div>
+		    </div>
+		  </div>
+		</nav>
+ #{/else}
+
+#{if d}
+
+	#{set title:'Edição de colaborador' /}
+
+#{/if}
+#{else}
+
+	#{set title:'Cadastro de colaborador' /}
+
+#{/else}
+<br></br>
+ <center>
+  <h2 class="text-success">#{get 'title' /}</h2>
+ </center>
+
+
+<div class="container">
+<form class="row g-3" action="@{Bibliotecario.salvar}">
+
+<input type="hidden" name="d.id" value="${d?.id}"/>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Nome:</label>
+    <input type="text" class="form-control" id="inputEmail4" name="d.nome" value="${d?.nome}">
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Cpf</label>
+    <input type="text" class="form-control" id="inputPassword4" name="d.cpf" value="${d?.cpf}">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Email:</label>
+    <input type="text" class="form-control" id="inputAddress" name="d.email"value="${d?.email}">
+  </div>
+   <div class="col-12">
+    <label for="inputAddress" class="form-label">Senha:</label>
+    <input type="password" class="form-control" id="inputAddress" name="d.senha"value="${d?.email}">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Função:</label>
+
+
+    <select class="form-select" id="autoSizingSelect" name="d.funcao">
+      <option selected>Escolha...</option>
+      <option >Vendedor</option>
+      <option >caixa</option>
+      <option>Estoque</option>
+      <option >Administrador</option>
+      <option>Limpeza</option>
+      
+    </select>
+
+ 
+  </div>
+  
+#{if d}
+
+	  <div class="col-12">
+    <button type="submit" class="btn btn-success">Editar</button>
+  </div>
+
+
+#{/if}
+#{else}
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-success">Cadastrar</button>
+  </div>
+
+#{/else}
+
+ </form>
+ </div>

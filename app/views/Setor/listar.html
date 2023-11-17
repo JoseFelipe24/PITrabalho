@@ -1,0 +1,81 @@
+#{extends 'main.html' /}
+#{set title:'Lista de Setores' /}
+<br></br>
+
+<center>
+<h2 class="text-success">#{get 'title' /}</h2>
+</center>
+
+
+<div class="container">
+<form action="@{Setor.listar}" method="GET">
+	<div class="row">
+		<div class="col-9">
+			<input class="form-control" type="text"
+				name="termo" value="${termo}" placeholder="Informe o termo de busca" />
+		</div>
+		<div class="col-3">
+			<input type="submit" class="btn btn-success mb-3" value="Buscar" />
+		</div>
+	</div>
+</form>
+
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID:</th>
+      <th scope="col">Nome do setor:</th>
+      <th scope="col">Configurações do setor </th>
+      <th scope="col">Nome do funcionario</th>
+      <th scope="col">Remover esse funcionario</th>
+      <th scope="col">Função do funcionario:</th>
+      
+
+    </tr>
+  </thead>
+  <tbody>
+  
+  #{list items:set, as:'s'}
+     <tr>
+      <th scope="row">${s.id}</th>
+      <td>${s.nome} </td>
+      <td>
+      <a class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" 
+      href="@{Setor.remover(s.id)}">Remover </a>
+	  <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+	   href="@{Setor.editar(s.id)}">Editar</a>
+	   </td>
+	   <td></td>
+	   <td></td>
+	   <td></td>
+  #{list items: s.bibliotecariolista, as:'f2'}
+       <tr>
+      <th scope="row">${s.id}</th>
+      <td>${s.nome} </td>
+      <td>
+      <a class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" 
+      href="@{Setor.remover(s.id)}">Remover </a>
+	  <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+	   href="@{Setor.editar(s.id)}">Editar</a>
+	   </td>
+      <td>${f2.nome} </td> 
+      <td>
+       <a class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" 
+       href="@{Setor.removerFuncionario(s.id, f2.id)}">Remover Funci. do setor</a>
+      </td> 
+      <td>${f2.funcao}</td>
+      
+      
+    </tr>
+    #{/list}
+    
+#{/list}
+  </tbody>
+</table>
+</div>
+
+<center>
+ <font face="cursive">
+  <a class="btn btn-outline-dark" href="@{Setor.form()}">Novo Setor</a>
+ </font> 
+</center>

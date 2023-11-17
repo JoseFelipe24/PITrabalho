@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Formulario com CSS</title>
+<style >
+* {
+	margin:0;
+	padding: 0;
+}
+
+body{
+	
+	font : 100% normal Arial , Helvetica , sans-serif;
+	background-image: url("/public/images/livro1.jpg");
+	background-size: 100%;
+}
+
+form , input , select , textarea  {
+	
+	color:#4B0082;
+	font-weight: bold;
+	
+}
+
+div.box{
+	
+	width: 600px;
+	margin: 0 auto;
+	position: relative;
+	top: 50px;
+	border : 1px solid rgba(255,255,255,.5) ;
+
+}
+
+div.box label{
+	width: 100%;
+	display: block;
+	padding: 8px 0 8px 0 ;
+	
+	}
+	.subTitulos{
+	display: block;
+	color: white;
+	font-size: 14px;
+	font-family:Algerian;
+	margin-left:250px;
+	width: 120px;
+	padding: 5px 20px 0 0 ;
+	}
+	
+ div.box .campoTexto{
+ padding: 10px 10px;
+ width: 200px;
+ margin-left:200px;
+ background-color:rgba(255,255,255,.5);
+ border-bottom: 1px double white;
+ border-top: 1px double white;
+ border-left: 1px double white;
+ border-right: 1px double white;
+ border-radius: 20px;
+ }
+ 
+div.box .mensagem{
+padding: 7px 7px;
+width: 320px;
+margin-left:140px;
+background-color:rgba(255,255,255,.5);
+ border-bottom: 1px double white;
+ border-top: 1px double white;
+ border-left: 1px double white;
+ border-right: 1px double white;
+height: 150px;
+ border-radius: 20px;
+	
+}
+#opcoesG{
+ width: 80px;
+ margin-left:200px;
+ color:#A020F0;
+  background-color:rgba(255,255,255,.5);
+
+ }
+ .morte{
+    color:#4B0082
+ }
+.roxao{
+	color:#A020F0;
+}
+.azul{
+	color:#00FFFF;
+}
+.azulsao{
+    color:rgb(0,191,255);
+}
+div.box .botao{
+	margin: 0 0 10px 0;
+	padding: 4px 7px ;
+	background:	#4B0082;
+	color: white;
+	position: relative;
+	top:10px;
+	left: 200px;
+	width: 100px;	
+	font-family:cursive;
+	font-weight:bold;
+	border-bottom: 1px double white;
+    border-top: 1px double white;
+    border-left: 1px double white;
+    border-right: 1px double white;
+	
+}
+
+div.box .botao2{
+	margin: 0 0 10px 0;
+	padding: 4px 7px ;
+	background:	#9400D3;
+	color: white;
+	position: relative;
+	top:10px;
+	left: 200px;
+	width: 100px;	
+	font-family:cursive;
+	border-bottom: 1px double white;
+    border-top: 1px double white;
+    border-left: 1px double white;
+    border-right: 1px double white;
+	
+}
+
+</style>
+
+<link rel="stylesheet" href="FormularioUsuario.css"/>
+<script>
+	function validar(){
+		
+		var nome = document.getElementById("nome").value;
+		var email = document.getElementById("Email").value;
+		var txtsenha = document.getElementById("senha").value;
+		var txtconfirmasenha = document.getElementById("confirmaSenha").value;
+		
+		var erro = false;
+		
+		if(nome == ""){
+			alert("O campo nome não pode ficar vazio");
+			erro = true;
+		}
+		
+		if(txtsenha == ""){
+			alert("O campo senha não pode ficar vazio");
+			erro = true;
+		}
+		if(txtconfirmasenha == ""){
+			alert("O campo confirmesenha não pode ficar vazio");
+			erro = true;
+		}
+		if(email == ""){
+			alert("O campo Email não pode ficar vazio");
+			erro = true;
+		}
+		if(txtsenha != txtconfirmasenha){
+			alert("Senhas n estão iguais");
+			erro = true;
+		}
+		
+		if(txtsenha.length <= 7 ){
+			alert("O campo senha tem que ter mais de 7 caracteres");
+			erro = true;
+		}
+
+		if(erro){
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+<div class="container">
+ <form name = "MeuForm" method="post" id="formulario" action="confirmacao.html">
+  <div class="box">
+   
+   <label>
+    <span class = "subTitulos"><center>Nome Completo</center></span>
+     <br>
+    <input type = "text" class="campoTexto" name="nome" id = "nome" />
+   </label>
+   
+      
+   <label>
+    <span class = "subTitulos"><center>Email</center></span>
+    <br>
+    <input type = "text" class="campoTexto" name="Email" id = "Email" />
+   </label>
+   
+         
+   <label>
+    <span class = "subTitulos"><center>senha</center></span>
+     <br>
+    <input type = "password" class="campoTexto" name="senha" id = "senha" />
+   </label>
+   
+    <label>
+    <span class = "subTitulos"><center>Confirmar Senha</center></span>
+     <br>
+    <input type = "password" class="campoTexto" name="confirmaSenha" id = "confirmaSenha" />
+   </label>
+   
+   <label>
+    <span class = "subTitulos"><center>Quanto você gosta de ler?</center></span>
+   <input type = "range" class="campoTexto" name="nivel" id = "leitura" />
+   </label>
+   
+   <label class = "morte" >
+    <span class = "subTitulos"><center>Gênero</center></span>
+     <br>
+     <input id="opcoesG" type="radio" name="opGenero" value="F"/>Feminino
+     <span class="roxao"><input id="opcoesG" type="radio" name="opGenero" value="M"/>Masculino</span>
+     <span class="azul"><input id="opcoesG" type="radio" name="opGenero" value="NB"/>Não binario</span> 
+     <span class="azulsao"><input id="opcoesG" type="radio" name="opGenero" value="O"/>Outro</span>
+   </label>
+   
+   <label>
+    <span class = "subTitulos"><center>O que você espera do site?</center></span>
+     <br>
+    <textarea class="mensagem" name="msg" id = "msg" ></textarea>
+   </label>
+   
+   <label>
+     <input class = "botao2 "type = "reset" value = "Limpar"></input>
+     <button type = "submit" class="botao" value ="Enviar" name = "enviar" onclick="return validar();" >Enviar</button>
+   </label>
+   
+   
+  </div>
+
+
+ </form>
+ </div>
+</body>
+</html>
