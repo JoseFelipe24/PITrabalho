@@ -1,10 +1,14 @@
 package models;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import controllers.Livros;
 import play.db.jpa.Model;
@@ -14,6 +18,8 @@ public class Compra extends Model {
 	
 public String EnderecoDeEntrega;
 public Cliente ClienteDaCompra;
-@OneToMany
-public List<Livros> livroslista;
+@ManyToMany
+public List<Livro> livroslista;
+@Temporal(TemporalType.TIMESTAMP)
+public Date data;
 }
