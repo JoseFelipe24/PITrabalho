@@ -3,6 +3,7 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import models.Bibliotecarios;
 import models.Compra;
 import models.Livro;
 import play.cache.Cache;
@@ -15,6 +16,43 @@ public class Compras extends Controller {
 		List<Livro> itensCarrinho = Cache.get(session.getId(), List.class);
 		
 		render(livrinhos, itensCarrinho);
+	}
+	public static void Novidades() {
+	
+		List<Livro> livri1 = Livro.find("genero = ? 1 ", "romance").first();
+		List<Livro> itensCarrinho = Cache.get(session.getId(), List.class);
+		
+		render(livri1, itensCarrinho);
+	}
+	public static void Terror() {
+		List<Livro> livri2 = Livro.find("genero = ? 1 ", "terror").first();
+		List<Livro> itensCarrinho = Cache.get(session.getId(), List.class);
+		
+		render(livri2, itensCarrinho);
+	}
+	public static void Romance() {
+		List<Livro> livri3 = Livro.find("genero = ? 1 ", "romance").first();
+		List<Livro> itensCarrinho = Cache.get(session.getId(), List.class);
+		
+		render(livri3, itensCarrinho);
+	}
+	public static void Suspense() {
+		List<Livro> livri4 = Livro.find("genero = ? 1 ", "suspense").first();
+		List<Livro> itensCarrinho = Cache.get(session.getId(), List.class);
+		
+		render(livri4, itensCarrinho);
+	}
+	public static void Fantasia() {
+		List<Livro> livri5 = Livro.find("genero = ? 1 ", "fantasia").first();
+		List<Livro> itensCarrinho = Cache.get(session.getId(), List.class);
+		
+		render(livri5, itensCarrinho);
+	}
+	public static void lgbt() {
+		List<Livro> livri6 = Livro.find("genero = ? 1 ", "RomanceLGBT").first();
+		List<Livro> itensCarrinho = Cache.get(session.getId(), List.class);
+		
+		render(livri6, itensCarrinho);
 	}
 	
 	public static void listar() {

@@ -15,5 +15,8 @@ public class Livro extends Model{
 	public String genero;
 	public String classificacao;
 	public String sinopse;
+	public String Imagem;
+	public double preco;
+	
 	
 }
