@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>livraria alvorada</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+	crossorigin="anonymous">
+<style>
+.teste {
+	background-image: url("/public/images/Fundolinks.jpg");
+	background-size: 100%;
+
+}
+.teste2 {
+	background-image: url("/public/images/Fundolinks.jpg");
+	background-size: 100%;
+	margin-top: 19%;
+}
+.img {
+	float: left;
+	height: 45px;
+	width: 45px;
+}
+
+.img2 {
+	float: left;
+	height: 20%;
+	width: 22%;
+}
+
+.busca {
+	background-color: rgba(255, 255, 255, .3);
+	border-bottom: 1px double white;
+	border-top: 1px double white;
+	border-left: 1px double white;
+	border-right: 1px double white;
+	border-radius: 20px;
+}
+
+.cor {
+	background-color: black;
+}
+
+.carrosel {
+	height: 50%;
+	width: 50%;
+}
+
+.palavras {
+	color: red;
+	font-family: monospace;
+	font-size: 130%;
+}
+
+.palavras2 {
+	color: white;
+	font-family: sans-serif;
+}
+
+.espaco {
+	margin-left: 17%;
+}
+
+.fundog {
+	background-image: url("/public/images/FundoDosGeneros.jpg");
+}
+
+.pagVoando {
+	background-image: url("/public/images/livrog.png");
+	background-size: 50%;
+}
+.imagemm{
+	float: left;
+
+	height: 90%;
+	width: 500px;
+}
+.table {
+
+	width: 20%;
+	border: 1px ;
+	border: solid;
+	border: red;
+	float: left;
+	margin-left: 2%
+	
+}
+
+</style>
+</head>
+<body class="cor">
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+
+	<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark teste"
+		data-bs-theme="dark">
+		<div class="container">
+			<a class="navbar-brand col-8 " href="@{Compras.PaginaInicial}">Livraria
+				alvorecer</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<div class="row">
+
+						<a class="nav-link col-4" href="@{Clientes.form}"><img
+							class="img" alt="pesquisa" src="/public/images/perfil.png"
+							class="img"></a> <a class="nav-link col-4"
+							href="@{Bibliotecario.listar}"> <img class="img"
+							alt="pesquisa" src="/public/images/carrinho.png" class="img"></a>
+
+
+						<form class="d-flex col-4">
+							<input class="form busca"
+								placeholder="Digite o livro que procura">
+							<button class="btn " type="submit">
+								<img class="img" alt="pesquisa"
+									src="/public/images/pesquisa.png" class="img">
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<br></br> <br></br>
+	</nav>
+
+<br>
+
+
+
+
+
+
+ #{list items:lili, as:'t'}
+
+
+<div class="card text-white bg-dark mb-3 sod" style="width: 20% "  >
+  <img src="@{Livros.capaLivro(t.id)}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${t.nome}</h5>
+    <p class="card-text">Por ${t.autor}</p>
+  </div>
+  <ul class="list-group list-group-flush text-white bg-dark mb-3">
+    <li class="list-group-item text-white bg-dark mb-3"><td>${t.preco} R$</td></li>
+    <li class="list-group-item text-white bg-dark mb-3"><td>${t.genero}</td></li>
+    <li class="list-group-item text-white bg-dark mb-3"><td>${t.classificacao}</td></li>
+  </ul>
+
+</div>
+
+#{/list}
+
+
+	<table border=1 class="table " >
+		<tr>
+			<th >Gênero</th>
+		</tr>
+		<tr>
+			<td>Romance</td>
+		</tr>
+
+		<tr>
+			<td>Jovem</td>
+		</tr>
+
+		<tr>
+			<td>Preta</td>
+		</tr>
+		<tr>
+			<td>Preta</td>
+		</tr>
+		<tr>
+			<td>Preta</td>
+		</tr>
+
+	</table>
+
+		<table border=1 class="table">
+		<tr>
+			<th >Gênero</th>
+		</tr>
+		<tr>
+			<td>Romance</td>
+		</tr>
+
+		<tr>
+			<td>Jovem</td>
+		</tr>
+
+		<tr>
+			<td>Preta</td>
+		</tr>
+		<tr>
+			<td>Preta</td>
+		</tr>
+		<tr>
+			<td>Preta</td>
+		</tr>
+
+	</table>
+
+	<div class=" teste2">
+		<br> <br>
+		<div class="row ">
+
+
+			<p class="col-2"></p>
+			<p class="col-2 palavras">Instituição</p>
+			<p class="col-2 palavras">Receba as novidades</p>
+			<p class="col-2 palavras">Duvidas</p>
+			<p class="col-2 palavras">Contatos</p>
+			<p class="col-2"></p>
+		</div>
+
+		<div class="row ">
+
+			<p class="col-2"></p>
+			<p class="col-2 palavras2">Sobre a empresa</p>
+			<p class="col-2 palavras2">Assine e receba as novidades</p>
+			<p class="col-2 palavras2">Política de Privacidade</p>
+			<p class="col-2 palavras2">
+				Whastzap<img class="img" alt="pesquisa" src="/public/images/zap.png"
+					class="img">
+			</p>
+			<p class="col-2"></p>
+		</div>
+
+		<div class="row ">
+			<p class="col-2"></p>
+			<p class="col-2 palavras2">Sobre os criadores</p>
+			<p class="col-2 palavras2"></p>
+			<p class="col-2 palavras2">Política de Trocas e Garantia</p>
+			<p class="col-2 palavras2">
+				Instragram<img class="img" alt="pesquisa"
+					src="/public/images/insta.png" class="img">
+			</p>
+			<p class="col-2"></p>
+		</div>
+
+
+
+		<br> <br>
+
+		<center>
+			<p class=" palavras2">2013-2023 @ Proibida a reprodução sem
+				autorização. Livraria Alvorada PRODUTOS COMERCIO DE LIVROS
+				ACADEMICOS E EM GERAL | CNPJ: 27.679.346/0002-86 | Avenida João
+				medeiros filho, 007, Bairro Medianeira, Natal - RN, CEP 50770001</p>
+		</center>
+	</div>
+</body>
+</html>

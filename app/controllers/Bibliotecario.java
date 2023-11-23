@@ -42,7 +42,7 @@ public class Bibliotecario extends Controller {
 	public static void salvar (Bibliotecarios d) {
 		d.save();
 		
-		listar(null);
+		Login.loginn();
 	}
 	
 	public static void form () {
