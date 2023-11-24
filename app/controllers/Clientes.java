@@ -56,5 +56,14 @@ public class Clientes extends Controller{
 		listar(null);
 	}
 	
+	public static void detalhar(Long id) {
+		Cliente cliente = Cliente.findById(id);
+		render(cliente);
+	}
+	public static void PaginaCliente() {
+		render();
+	}
+	
+	
 	
 }

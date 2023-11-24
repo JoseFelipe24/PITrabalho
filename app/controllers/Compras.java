@@ -7,10 +7,18 @@ import models.Bibliotecarios;
 import models.Compra;
 import models.Livro;
 import play.cache.Cache;
+import play.mvc.Before;
 import play.mvc.Controller;
 
 public class Compras extends Controller {
 
+	@Before(only = {"PaginaInicial()","detalhar()"})
+	static void verificar() {
+		if(session.get("Cliente.email")== null) 
+			Login.loginn2();
+		
+		}
+	
 	public static void PaginaInicial() {
 		List<Livro> livrinhos = Livro.findAll();
 		List<Livro> itensCarrinho = Cache.get(session.getId(), List.class);

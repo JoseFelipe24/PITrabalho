@@ -12,13 +12,14 @@
 .teste {
 	background-image: url("/public/images/Fundolinks.jpg");
 	background-size: 100%;
-
 }
+
 .teste2 {
 	background-image: url("/public/images/Fundolinks.jpg");
 	background-size: 100%;
 	margin-top: 19%;
 }
+
 .img {
 	float: left;
 	height: 45px;
@@ -72,23 +73,28 @@
 	background-image: url("/public/images/livrog.png");
 	background-size: 50%;
 }
-.imagemm{
-	float: left;
 
+.imagemm {
+	float: left;
 	height: 90%;
 	width: 500px;
 }
-.table {
 
+.table {
 	width: 20%;
-	border: 1px ;
+	border: 1px;
 	border: solid;
 	border: red;
 	float: left;
 	margin-left: 2%
-	
 }
-
+.sod{
+float: left;
+margin-left: 1%;
+margin-right: 1%;
+margin-top: 1%;
+margin-bottom: 1%;
+}
 </style>
 </head>
 <body class="cor">
@@ -100,7 +106,7 @@
 	<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark teste"
 		data-bs-theme="dark">
 		<div class="container">
-			<a class="navbar-brand col-8 " href="@{Compras.PaginaInicial}">Livraria
+			<a class="navbar-brand col-3 " href="@{Compras.PaginaInicial}">Livraria
 				alvorecer</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -113,14 +119,15 @@
 				<div class="navbar-nav">
 					<div class="row">
 
-						<a class="nav-link col-4" href="@{Clientes.form}"><img
+						<a class="nav-link col-3" href="@{Clientes.form}"><img
 							class="img" alt="pesquisa" src="/public/images/perfil.png"
-							class="img"></a> <a class="nav-link col-4"
+							class="img"></a> 
+							<a class="nav-link col-3"
 							href="@{Bibliotecario.listar}"> <img class="img"
 							alt="pesquisa" src="/public/images/carrinho.png" class="img"></a>
 
 
-						<form class="d-flex col-4">
+						<form class="d-flex col-3">
 							<input class="form busca"
 								placeholder="Digite o livro que procura">
 							<button class="btn " type="submit">
@@ -134,129 +141,30 @@
 			<br></br> <br></br>
 	</nav>
 
-<br>
+	<br> #{list items:lili, as:'t'}
 
 
-
-
-
-
- #{list items:lili, as:'t'}
-
-
-<div class="card text-white bg-dark mb-3 sod" style="width: 20% "  >
-  <img src="@{Livros.capaLivro(t.id)}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">${t.nome}</h5>
-    <p class="card-text">Por ${t.autor}</p>
+<div class="card mb-3 text-white bg-dark mb-3 sod" style="max-width: 380px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <a><img src="@{Livros.capaLivro(t.id)}" class="img-fluid rounded-start" alt="..."></a>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">${t.nome}</h5>
+        <p class="card-text">Por ${t.autor}</p>
+        <p class="card-text">${t.preco} R$</p>
+        <p class="card-text">${t.classificacao}</p>
+        <p class="card-text"><small class="text-muted">${t.genero}</small></p>
+      </div>
+    </div>
   </div>
-  <ul class="list-group list-group-flush text-white bg-dark mb-3">
-    <li class="list-group-item text-white bg-dark mb-3"><td>${t.preco} R$</td></li>
-    <li class="list-group-item text-white bg-dark mb-3"><td>${t.genero}</td></li>
-    <li class="list-group-item text-white bg-dark mb-3"><td>${t.classificacao}</td></li>
-  </ul>
-
 </div>
-
-#{/list}
-
-
-	<table border=1 class="table " >
-		<tr>
-			<th >Gênero</th>
-		</tr>
-		<tr>
-			<td>Romance</td>
-		</tr>
-
-		<tr>
-			<td>Jovem</td>
-		</tr>
-
-		<tr>
-			<td>Preta</td>
-		</tr>
-		<tr>
-			<td>Preta</td>
-		</tr>
-		<tr>
-			<td>Preta</td>
-		</tr>
-
-	</table>
-
-		<table border=1 class="table">
-		<tr>
-			<th >Gênero</th>
-		</tr>
-		<tr>
-			<td>Romance</td>
-		</tr>
-
-		<tr>
-			<td>Jovem</td>
-		</tr>
-
-		<tr>
-			<td>Preta</td>
-		</tr>
-		<tr>
-			<td>Preta</td>
-		</tr>
-		<tr>
-			<td>Preta</td>
-		</tr>
-
-	</table>
-
-	<div class=" teste2">
-		<br> <br>
-		<div class="row ">
-
-
-			<p class="col-2"></p>
-			<p class="col-2 palavras">Instituição</p>
-			<p class="col-2 palavras">Receba as novidades</p>
-			<p class="col-2 palavras">Duvidas</p>
-			<p class="col-2 palavras">Contatos</p>
-			<p class="col-2"></p>
-		</div>
-
-		<div class="row ">
-
-			<p class="col-2"></p>
-			<p class="col-2 palavras2">Sobre a empresa</p>
-			<p class="col-2 palavras2">Assine e receba as novidades</p>
-			<p class="col-2 palavras2">Política de Privacidade</p>
-			<p class="col-2 palavras2">
-				Whastzap<img class="img" alt="pesquisa" src="/public/images/zap.png"
-					class="img">
-			</p>
-			<p class="col-2"></p>
-		</div>
-
-		<div class="row ">
-			<p class="col-2"></p>
-			<p class="col-2 palavras2">Sobre os criadores</p>
-			<p class="col-2 palavras2"></p>
-			<p class="col-2 palavras2">Política de Trocas e Garantia</p>
-			<p class="col-2 palavras2">
-				Instragram<img class="img" alt="pesquisa"
-					src="/public/images/insta.png" class="img">
-			</p>
-			<p class="col-2"></p>
-		</div>
+	#{/list}
 
 
 
-		<br> <br>
 
-		<center>
-			<p class=" palavras2">2013-2023 @ Proibida a reprodução sem
-				autorização. Livraria Alvorada PRODUTOS COMERCIO DE LIVROS
-				ACADEMICOS E EM GERAL | CNPJ: 27.679.346/0002-86 | Avenida João
-				medeiros filho, 007, Bairro Medianeira, Natal - RN, CEP 50770001</p>
-		</center>
-	</div>
+
 </body>
 </html>
