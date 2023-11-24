@@ -14,12 +14,18 @@ public class Compras extends Controller {
 
 	@Before(only = {"PaginaInicial()","detalhar()"})
 	static void verificar() {
-		if(session.get("Cliente.email")== null) 
+		if(session.get("Cliente.email")== null) {
 			Login.loginn2();
-		
+		}
 		}
 	
 	public static void PaginaInicial() {
+		List<Livro> livrinhos = Livro.findAll();
+		List<Livro> itensCarrinho = Cache.get(session.getId(), List.class);
+		
+		render(livrinhos, itensCarrinho);
+	}
+	public static void carrinho() {
 		List<Livro> livrinhos = Livro.findAll();
 		List<Livro> itensCarrinho = Cache.get(session.getId(), List.class);
 		
@@ -41,7 +47,7 @@ public class Compras extends Controller {
 	 	Livro livrocar = Livro.findById(id);
 		itensCarrinho.add(livrocar);
 		Cache.set(session.getId(), itensCarrinho);
-		PaginaInicial();
+		carrinho();
 	}
 	
 	public static void salvar() {

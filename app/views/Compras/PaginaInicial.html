@@ -17,8 +17,8 @@
 	}
 	.img2 {
 	float: left;
-	height: 20%;
-	width: 22%;
+	height: 100%;
+	width: 100%;
 	}
 	
    .busca{
@@ -51,7 +51,7 @@ font-family: sans-serif;
 
 }
 .espaco{
-margin-left: 17%;
+margin-left: 4%;
 }
 .fundog{
     background-image: url("/public/images/FundoDosGeneros.jpg");
@@ -80,7 +80,7 @@ background-size: 50%;
 		      <div class = "row">
 		      
 		        <a class="nav-link col-2" href="@{Clientes.PaginaCliente}"><img class="img" alt="pesquisa"src="/public/images/perfil.png" class="img"></a>
-		        <a class="nav-link col-2" href="@{Bibliotecario.listar}"> <img class="img" alt="pesquisa"src="/public/images/carrinho.png" class="img"></a>
+		        <a class="nav-link col-2" href="@{Compras.carrinho}"> <img class="img" alt="pesquisa"src="/public/images/carrinho.png" class="img"></a>
 		        <a class="nav-link col-2" href="#">${session['Cliente.email']}</a>
 		       
 	
@@ -132,21 +132,27 @@ background-size: 50%;
 	
 <br>
 		<center><span class= "palavras"> <b>Coleções De Livros</b></span></center>
-		<center><span class= "palavras2"><h1> <b>Livraria ALvorecer</b></h1></span></center>
-        <div class = "fundog">
-		<div class = "row ">
-			<a  href="@{Livros.Novidades}">rtyretyret</a>
-	<img class="img2 col-4 espaco" alt="pesquisa"src="/public/images/novidade.png" class="img">
 		
-		<img class="img2 col-4" alt="pesquisa"src="/public/images/romance.png" class="img">
-	<img class="img2 col-4" alt="pesquisa"src="/public/images/terror.png" class="img">
+		<center><span class= "palavras2"><h1> <b>Livraria ALvorecer</b></h1></span></center>
+		<div class = "fundog">
+       
+
+		<div class = "row ">
+			<div class = "col-1"></div>
+<a class="col-3 espaco" href="@{Livros.terror}"><img class="img2 " alt="pesquisa"src="/public/images/novidade.png" class="img"></a>		
+
+<a  class="col-3" href="@{Livros.terror}"><img class="img2 " alt="pesquisa"src="/public/images/romance.png" class="img"></a>
+
+<a class="col-3" href="@{Livros.terror}"><img class="img2" alt="pesquisa"src="/public/images/terror.png" class="img"></a>
+		<div class = "col-1"></div>
 		</div>
 		<br>
 		<div class = "row">
-	
-		<img class="img2 col-4 espaco" alt="pesquisa"src="/public/images/suspense.png" class="img">
-		<img class="img2 col-4" alt="pesquisa"src="/public/images/lgbt.png" class="img">
-		<img class="img2 col-4" alt="pesquisa"src="/public/images/Fantasia.png" class="img">
+	<div class = "col-1"></div>
+		<a class=" col-3 espaco" href="@{Livros.terror}"><img class="img2 " alt="pesquisa"src="/public/images/suspense.png" class="img"></a>
+		<a class=" col-3 " href="@{Livros.terror}"><img class="img2 " alt="pesquisa"src="/public/images/lgbt.png" class="img"></a>
+		<a class=" col-3" href="@{Livros.terror}"><img class="img2 " alt="pesquisa"src="/public/images/Fantasia.png" class="img"></a>
+		<div class = "col-1"></div>
 		</div>
 		<br>
 		<br>
@@ -156,11 +162,7 @@ background-size: 50%;
 		<br>
 		<br>
 		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+
 
 </div>
 <div class = "row pagVoando">

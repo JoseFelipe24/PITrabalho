@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 import Interface.Administrador;
+import models.Cliente;
 import models.Livro;
 import play.cache.Cache;
 import play.db.jpa.Blob;
@@ -77,8 +78,11 @@ public class Livros extends Controller{
 		
 		ll.save();
 		listar("");
-		
-		
+
+	}
+	public static void detalhar(Long id) {
+		Livro livro = Livro.findById(id);
+		render(livro);
 	}
 	
 	public static void Novidades() {

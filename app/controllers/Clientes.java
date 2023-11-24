@@ -31,7 +31,7 @@ public class Clientes extends Controller{
 	
 	public static void salvar (Cliente cc) {
 		cc.save();
-		listar("");
+		Login.loginn2();
 	}
 	
 	public static void form () {

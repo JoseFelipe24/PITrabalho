@@ -17,7 +17,9 @@ public class Livro extends Model{
 	public String sinopse;
 	public Blob Imagem;
 	public double preco;
+	public int numeropag;
+	public String Idioma;
+	public String Editora;
+	public String TipoDeLivro;
 	public String nomeImagem;
-	
-	
 }
