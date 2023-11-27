@@ -12,7 +12,7 @@ import models.Bibliotecarios;
 @Administrador
 public class Bibliotecario extends Controller {
 	
-	@Before(only = {"form()","salvar()"})
+	@Before(only={"listar","remover","editar"})
 	static void verificar() {
 		if(session.get("Bibliotecarios.email")== null) 
 			Login.loginn();

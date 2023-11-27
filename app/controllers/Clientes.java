@@ -6,6 +6,7 @@ import models.Bibliotecarios;
 import models.Cliente;
 import models.Compra;
 import models.Livro;
+
 import models.Setores;
 import play.mvc.Controller;
 
@@ -56,9 +57,12 @@ public class Clientes extends Controller{
 		listar(null);
 	}
 	
-	public static void detalhar(Long id) {
-		Cliente cliente = Cliente.findById(id);
-		render(cliente);
+	public static void detalhar() {
+		String email = session.get("Cliente.email");
+		Cliente Clientinho = Cliente.find("email = ?1", email).first();
+		
+
+		render(Clientinho);
 	}
 	public static void PaginaCliente() {
 		render();

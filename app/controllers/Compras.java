@@ -3,6 +3,7 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import Interface.Administrador;
 import models.Bibliotecarios;
 import models.Compra;
 import models.Livro;
@@ -10,15 +11,16 @@ import play.cache.Cache;
 import play.mvc.Before;
 import play.mvc.Controller;
 
+
 public class Compras extends Controller {
 
-	@Before(only = {"PaginaInicial()","detalhar()"})
-	static void verificar() {
-		if(session.get("Cliente.email")== null) {
+	@Before(only={"listar","carrinho","salvar","addLivro",})
+	static void verificarr() {
+		if(session.get("Cliente.email")== null) 
 			Login.loginn2();
+		
 		}
-		}
-	
+
 	public static void PaginaInicial() {
 		List<Livro> livrinhos = Livro.findAll();
 		List<Livro> itensCarrinho = Cache.get(session.getId(), List.class);
@@ -67,5 +69,15 @@ public class Compras extends Controller {
 		Compra pedido = Compra.findById(id);
 		render(pedido);
 	}
-	
+	public static void listarCompras (String termo) {
+		List<Livro> lili = null;
+		if (termo == null || termo.isEmpty()) {
+			lili = Livro.findAll();
+		} else {
+			lili = Livro.find("lower(nome) like ?1 or lower(autor) like ?1",
+					"%"+ termo.toLowerCase() +"%").fetch();
+		}
+		 render(lili, termo);
+		
+	}
 }

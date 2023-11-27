@@ -14,8 +14,8 @@ import play.libs.MimeTypes;
 import play.mvc.Controller;
 import play.mvc.With;
 
-@Administrador
-@With(Seguranca.class)
+
+
 public class Livros extends Controller{
 
 	
@@ -30,17 +30,7 @@ public class Livros extends Controller{
 		 render(lili, termo);
 		
 	}
-	public static void listarCompras (String termo) {
-		List<Livro> lili = null;
-		if (termo == null || termo.isEmpty()) {
-			lili = Livro.findAll();
-		} else {
-			lili = Livro.find("lower(nome) like ?1 or lower(autor) like ?1",
-					"%"+ termo.toLowerCase() +"%").fetch();
-		}
-		 render(lili, termo);
-		
-	}
+	
 	
 	public static void remover (long id) {
 		Livro l = Livro.findById(id);
