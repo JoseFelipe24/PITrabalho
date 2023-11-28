@@ -61,8 +61,10 @@ public class Clientes extends Controller{
 		String email = session.get("Cliente.email");
 		Cliente Clientinho = Cliente.find("email = ?1", email).first();
 		
+		List<Compras> comprinhas= Compra.find("ClienteDaCompra = ?1", Clientinho).first();
+		
 
-		render(Clientinho);
+		render(Clientinho,comprinhas);
 	}
 	public static void PaginaCliente() {
 		render();
