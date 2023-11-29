@@ -9,6 +9,7 @@ import Interface.Administrador;
 import models.Cliente;
 import models.Livro;
 import play.cache.Cache;
+import play.data.validation.Valid;
 import play.db.jpa.Blob;
 import play.libs.MimeTypes;
 import play.mvc.Controller;
@@ -50,7 +51,12 @@ public class Livros extends Controller{
 		
 	}	
  
-	public static void salvar (Livro ll) {
+	public static void salvar (@Valid Livro ll) {
+		
+		if(validation.hasErrors()) {
+			validation.keep();
+			form();
+		}
 		
 		ll.save();
 		listar("");

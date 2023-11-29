@@ -136,26 +136,31 @@ margin-left: 17%;
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label palavras2"><b>Nome:</b></label>
     <input type="text" class="form-control campoTexto" id="inputEmail4" name="cc.nome" value="${c?.nome}">
+     #{error 'Cliente.nome' /}
   </div>
   <br>
   <div class="col-md-12">
     <label for="inputPassword4" class="form-label palavras2"><b>Cpf</b></label>
     <input type="text" class="form-control campoTexto" id="inputPassword4" name="cc.cpf" value="${c?.cpf}">
-  </div>
+  </div> #{error 'Cliente.cpf' /}
   <div class="col-12">
     <label for="inputAddress" class="form-label palavras2"><b>Email:</b></label>
     <input type="text" class="form-control campoTexto" id="inputAddress" name="cc.email"value="${c?.email}">
+    #{error 'Cliente.email' /}
   </div>
    <div class="col-12">
     <label for="inputAddress" class="form-label palavras2"><b>Senha:</b></label>
     <input type="password" class="form-control campoTexto" id="inputAddress" name="cc.senha"value="${c?.senha}">
+    #{error 'Cliente.senha' /}
   </div>
      <div class="col-12">
     <label for="inputAddress" class="form-label palavras2"><b>Endereço:</b></label>
     <input type="text" class="form-control campoTexto" id="inputAddress" name="cc.endereco"value="${c?.endereco}">
+    #{error 'Cliente.endereco' /}
   </div>
   <div class="col-12">
     <label for="inputAddress" class="form-label palavras2">Preferencia de Genero:</b></label>
+    #{error 'Cliente.preferenciaGenero' /}
 
 
     <select class="form-select campoTexto" id="autoSizingSelect" name="cc.preferenciaGenero">

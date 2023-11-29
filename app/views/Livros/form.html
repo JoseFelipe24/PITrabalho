@@ -1,95 +1,105 @@
-#{extends 'main.html' /}
-
-#{if l}
-
-	#{set title:'Edição de  Livros da livraria' /}
-
-#{/if}
-#{else}
-
-	#{set title:'Cadastro de  Livros da livraria' /}
-
-#{/else}
+#{extends 'main.html' /} #{if l} #{set title:'Edição de Livros da
+livraria' /} #{/if} #{else} #{set title:'Cadastro de Livros da livraria'
+/} #{/else}
 
 <br></br>
 
- <center>
-  <h2 class="text-success">#{get 'title' /}</h2>
- </center>
+<center>
+	<h2 class="text-success">#{get 'title' /}</h2>
+</center>
 
 <div class="container">
-<form method ="post"  class="row g-3" action="@{Livros.salvar}" enctype="multipart/form-data">
+	<form method="post" class="row g-3" action="@{Livros.salvar}"
+		enctype="multipart/form-data">
 
-<input type="hidden" name="ll.id" value="${l?.id}"/>
-  <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">Nome:</label>
-    <input type="text" class="form-control" id="inputEmail4" name="ll.nome" value="${l?.nome}">
-  </div>
-  <div class="col-md-6">
-    <label for="inputPassword4" class="form-label">Data de lançamento:</label>
-    <input type="date" class="form-control" id="inputPassword4" name="ll.ano" value="${l?.ano}">
-  </div>
-  <div class="col-12">
-    <label for="inputAddress" class="form-label">Autor:</label>
-    <input type="text" class="form-control" id="inputAddress" name="ll.autor"value="${l?.autor}">
-  </div>
-    <div class="col-12">
-    <label for="inputAddress" class="form-label">genero:</label>
-    <input type="text" class="form-control" id="inputAddress" name="ll.genero"value="${l?.genero}">
-  </div>
-    <div class="col-12">
-    <label for="inputAddress" class="form-label">classificacao</label>
-    <input type="text" class="form-control" id="inputAddress" name="ll.classificacao"value="${l?.classificacao}">
-  </div>
-      <div class="col-12">
-    <label for="inputAddress" class="form-label">Sinopse</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ll.sinopse" value="${l?.sinopse}"></textarea>
-  </div>
+		<input type="hidden" name="ll.id" value="${l?.id}" />
+		<div class="col-md-6">
+			<label for="inputEmail4" class="form-label">Nome:</label> <input
+				type="text" class="form-control" id="inputEmail4" name="ll.nome"
+				value="${l?.nome}"> #{error 'Livro.nome' /}
+		</div>
+		<div class="col-md-6">
+			<label for="inputPassword4" class="form-label">Data de
+				lançamento:</label> <input type="date" class="form-control"
+				id="inputPassword4" name="ll.ano" value="${l?.ano}"> #{error
+			'Livro.ano' /}
+		</div>
+		<div class="col-12">
+			<label for="inputAddress" class="form-label">Autor:</label> <input
+				type="text" class="form-control" id="inputAddress" name="ll.autor"
+				value="${l?.autor}"> #{error 'Livro.autor' /}
+		</div>
+		<div class="col-12">
+			<label for="inputAddress" class="form-label">genero:</label> <input
+				type="text" class="form-control" id="inputAddress" name="ll.genero"
+				value="${l?.genero}"> #{error 'Livro.genero' /}
+		</div>
+		<div class="col-12">
+			<label for="inputAddress" class="form-label">classificacao</label> <input
+				type="text" class="form-control" id="inputAddress"
+				name="ll.classificacao" value="${l?.classificacao}"> #{error
+			'Livro.classificacao' /}
+		</div>
+		<div class="col-12">
+			<label for="inputAddress" class="form-label">Sinopse</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1"
+				rows="3" name="ll.sinopse" value="${l?.sinopse}"></textarea>
+			#{error 'Livro.sinopse' /}
+		</div>
 
-      <div class="col-12">
-    <label for="inputAddress" class="form-label">Capa do livro</label>
-    <input type="file" class="form-control" id="inputAddress" name="ll.Imagem"value="${l?.Imagem}">
-  </div>
-  <div class="col-12">
-    <label for="inputAddress" class="form-label">Preço do livro</label>
-    <input type="text" class="form-control" id="inputAddress" name="ll.preco"value="${l?.preco}">
-  </div>
-  <div class="col-12">
-    <label for="inputAddress" class="form-label">Número de páginas</label>
-    <input type="text" class="form-control" id="inputAddress" name="ll.numeropag"value="${l?.numeropag}">
-  </div>
-    <div class="col-12">
-    <label for="inputAddress" class="form-label">Idioma</label>
-    <input type="text" class="form-control" id="inputAddress" name="ll.Idioma"value="${l?.Idioma}">
-  </div>
-    <div class="col-12">
-    <label for="inputAddress" class="form-label">Editora</label>
-    <input type="text" class="form-control" id="inputAddress" name="ll.Editora"value="${l?.Editora}">
-  </div>
-    <div class="col-12">
-    <label for="inputAddress" class="form-label">TipoDeLivro</label>
-    <input type="text" class="form-control" id="inputAddress" name="ll.TipoDeLivro"value="${l?.TipoDeLivro}">
-  </div>
-      <div class="col-12">
-    <label for="inputAddress" class="form-label">nome do Arquivo</label>
-    <input type="text" class="form-control" id="inputAddress" name="ll.nomeImagem"value="${l?.nomeImagem}">
-  </div>
+		<div class="col-12">
+			<label for="inputAddress" class="form-label">Capa do livro</label> <input
+				type="file" class="form-control" id="inputAddress" name="ll.Imagem"
+				value="${l?.Imagem}"> #{error 'Livro.Imagem' /}
+		</div>
+		<div class="col-12">
+			<label for="inputAddress" class="form-label">Preço do livro</label> <input
+				type="text" class="form-control" id="inputAddress" name="ll.preco"
+				value="${l?.preco}"> #{error 'Livro.preco' /}
+		</div>
+		<div class="col-12">
+			<label for="inputAddress" class="form-label">Número de
+				páginas</label> <input type="text" class="form-control" id="inputAddress"
+				name="ll.numeropag" value="${l?.numeropag}"> #{error
+			'Livro.numeropag' /}
+		</div>
+		<div class="col-12">
+			<label for="inputAddress" class="form-label">Idioma</label> <input
+				type="text" class="form-control" id="inputAddress" name="ll.Idioma"
+				value="${l?.Idioma}"> #{error 'Livro.Idioma' /}
+		</div>
+		<div class="col-12">
+			<label for="inputAddress" class="form-label">Editora</label> <input
+				type="text" class="form-control" id="inputAddress" name="ll.Editora"
+				value="${l?.Editora}"> #{error 'Livro.Editora' /}
+		</div>
+		<div class="col-12">
+			<label for="inputAddress" class="form-label">TipoDeLivro</label> <input
+				type="text" class="form-control" id="inputAddress"
+				name="ll.TipoDeLivro" value="${l?.TipoDeLivro}"> #{error
+			'Livro.TipoDeLivro' /}
+		</div>
+		<div class="col-12">
+			<label for="inputAddress" class="form-label">nome do Arquivo</label>
+			<input type="text" class="form-control" id="inputAddress"
+				name="ll.nomeImagem" value="${l?.nomeImagem}"> #{error
+			'Livro.nomeImagem' /}
+		</div>
 
 
-#{if l}
+		#{if l}
 
-	  <div class="col-12">
-    <button type="submit" class="btn btn-success">Editar</button>
-  </div>
+		<div class="col-12">
+			<button type="submit" class="btn btn-success">Editar</button>
+		</div>
 
-#{/if}
-#{else}
+		#{/if} #{else}
 
-  <div class="col-12">
-    <button type="submit" class="btn btn-success">Cadastrar</button>
-  </div>
+		<div class="col-12">
+			<button type="submit" class="btn btn-success">Cadastrar</button>
+		</div>
 
-#{/else}
+		#{/else}
 
- </form>
- </div>
+	</form>
+</div>

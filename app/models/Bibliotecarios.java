@@ -26,11 +26,13 @@ public class Bibliotecarios extends Model {
 	@MinSize(11)
 	@MaxSize(11)
 	public long cpf;
-	
+
 	@Required
 	public String email;
 	
 	@Required
+	@Min(8)
+	@Max(20)
 	public String senha;
 	
 	@Required

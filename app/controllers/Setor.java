@@ -5,6 +5,7 @@ import java.util.List;
 import Interface.Administrador;
 import models.Bibliotecarios;
 import models.Setores;
+import play.data.validation.Valid;
 import play.db.jpa.JPABase;
 import play.mvc.Controller;
 import play.mvc.With;
@@ -34,13 +35,19 @@ public class Setor extends Controller {
 		listar("");
 	}
 	
-	public static void salvar (Setores s, Long idBibliotecario) {
+	public static void salvar (@Valid Setores s, Long idBibliotecario) {
 		
-		if (idBibliotecario != null) {
+		if(validation.hasErrors()) {
+			validation.keep();
+			form();
+		}
+		
+		else if (idBibliotecario != null) {
 		  Bibliotecarios b = Bibliotecarios.findById(idBibliotecario);
 		 s.bibliotecariolista.add(b);
 		 
 		}
+		
 		s.save();
 		editar(s.id);
 		

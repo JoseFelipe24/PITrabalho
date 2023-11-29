@@ -31,6 +31,7 @@
        
       #{list items:bibliotecarios1, as:'b'}
          <option value="${b.id}">${b.nome}</option>
+         #{error 'Setores.nome' /}
       #{/list}
     </select>
   </div>

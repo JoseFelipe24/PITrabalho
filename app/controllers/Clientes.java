@@ -8,6 +8,7 @@ import models.Compra;
 import models.Livro;
 
 import models.Setores;
+import play.data.validation.Valid;
 import play.mvc.Controller;
 
 public class Clientes extends Controller{
@@ -30,7 +31,13 @@ public class Clientes extends Controller{
 		listar("");
 	}
 	
-	public static void salvar (Cliente cc) {
+	public static void salvar (@Valid Cliente cc) {
+		
+		if(validation.hasErrors()) {
+			validation.keep();
+			form();
+		}
+		
 		cc.save();
 		Login.loginn2();
 	}
