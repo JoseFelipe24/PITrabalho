@@ -19,16 +19,13 @@ public class Livro extends Model {
 	public String autor;
 
 	@Required
-	@MinSize(4)
-	@MaxSize(4)
 	public Date ano;
 
 	@Required
 	public String genero;
 
 	@Required
-	@MinSize(2)
-	@MaxSize(2)
+
 	public String classificacao;
 
 	@Required

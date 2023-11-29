@@ -17,14 +17,15 @@ import play.db.jpa.Model;
 @Entity
 public class Compra extends Model {
 
-	@Required
-	public String EnderecoDeEntrega;
 
-	@Required
-	public Cliente ClienteDaCompra;
+	public String enderecoDeEntrega;
+
+
+	public Cliente clienteDaCompra;
 
 	@ManyToMany
 	public List<Livro> livroslista;
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date data;
 }
