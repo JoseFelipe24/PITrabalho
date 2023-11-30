@@ -40,7 +40,7 @@ public class Cliente extends Model {
 	public String endereco;
 	
 	@OneToMany
-
+	@JoinColumn(name = "idCompra")
 	public List<Compra> listaCompras;
 
 

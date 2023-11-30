@@ -174,9 +174,12 @@ margin-bottom: 1%;
 <hr>
 <center><h2>Compras registradas:</h2></center>
 
-<p><b>listaComprasss:</b> ${Clientinho.listaCompras} </p>
+<p><b>listaComprasss:</b> </p>
 
-  #{list items:Clientinho.listaCompras, as:'com'}
+ <p><b>Numero da compra:</b> ${c.id}</p>
+   <p><b>Data da compra:</b> ${c.data}</p>
+   
+  #{list items: Clientinho.listaCompras, as:'com'}
  <p><b>Numero da compra:</b> ${com.id}</p>
   <p><b>Data da compra:</b> ${com.data}</p>
  <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="@{Compras.detalharCompra(com.id)}">Detalhar Compra</a>

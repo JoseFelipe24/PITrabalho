@@ -67,10 +67,10 @@ public class Clientes extends Controller{
 	public static void detalhar() {
 		String email = session.get("Cliente.email");
 		Cliente Clientinho = Cliente.find("email = ? 1", email).first();
-		
-		List<Compra> ccc = Compra.find("clienteDaCompra = ? 1 ", Clientinho).first();
-		
-		render(Clientinho);
+
+	Compra c = Compra.find("cliente = ? 1", Clientinho).first();
+	
+		render(Clientinho,c);
 	}
 	public static void PaginaCliente() {
 		render();

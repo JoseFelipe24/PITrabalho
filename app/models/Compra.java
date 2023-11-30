@@ -25,7 +25,7 @@ public class Compra extends Model {
 
 	@ManyToOne
 	@JoinColumn(name = "idCliente")
-	public Cliente clienteDaCompra;
+	public Cliente cliente;
 
 	@ManyToMany
 	public List<Livro> livroslista;
