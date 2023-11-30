@@ -71,7 +71,7 @@ public class Compras extends Controller {
 		String email = session.get("Cliente.email");
 		
 		Cliente clienti = Cliente.find("email = ? 1", email).first();
-		pedido.clienteDaCompra =clienti;
+		pedido.cliente =clienti;
 		pedido.enderecoDeEntrega= clienti.endereco;
 		pedido.save();
 		Cache.clear();
