@@ -44,6 +44,7 @@ public class Login extends Controller {
 		}
 		else {
 			session.put("Cliente.email", clicli.email);
+			
 	
 			
 			Compras.PaginaInicial();	

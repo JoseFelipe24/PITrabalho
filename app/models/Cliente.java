@@ -38,7 +38,11 @@ public class Cliente extends Model {
 
 	@Required
 	public String endereco;
+	
 	@OneToMany
-	@JoinColumn(name = "idCompra")
+
 	public List<Compra> listaCompras;
+
+
+	
 }

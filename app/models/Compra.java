@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,10 +18,13 @@ import play.db.jpa.Model;
 @Entity
 public class Compra extends Model {
 
+	
+
 
 	public String enderecoDeEntrega;
 
-
+	@ManyToOne
+	@JoinColumn(name = "idCliente")
 	public Cliente clienteDaCompra;
 
 	@ManyToMany
@@ -28,4 +32,8 @@ public class Compra extends Model {
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date data;
+
+	public Compra() {
+		data = new Date();
+	}
 }
