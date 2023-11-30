@@ -20,7 +20,7 @@ public class Compra extends Model {
 
 	
 
-
+    @Required
 	public String enderecoDeEntrega;
 
 	@ManyToOne
@@ -30,6 +30,7 @@ public class Compra extends Model {
 	@ManyToMany
 	public List<Livro> livroslista;
 	
+    @Required
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date data;
 

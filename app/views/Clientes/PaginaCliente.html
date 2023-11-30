@@ -28,7 +28,11 @@
  border-right: 1px double white;
  border-radius: 20px;
 }
-
+.img4{
+    float: left;
+	height: 50%;
+	width: 50%;
+    }
 </style>
 </head>
 <body>
@@ -37,9 +41,10 @@
 	#{set title:'Pagina cliente' /}
 
 
-     		<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark teste"  data-bs-theme="dark">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark teste"  data-bs-theme="dark">
 		  <div class="container">
-		    <a class="navbar-brand col-2 " href="@{Compras.PaginaInicial}">Livraria alvorecer</a>
+		    <a class="navbar-brand col-2 " href="@{Compras.PaginaInicial}"><img class="img4" alt="pesquisa"src="/public/images/logoo.png" class="img"></a>
+		    <a class="navbar-brand col-2" href="@{Compras.PaginaInicial}"> Livraria Alvorecer</a>
 		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 		      <span class="navbar-toggler-icon"></span>
 		    </button>
@@ -47,14 +52,23 @@
 		    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		      <div class="navbar-nav">
 		      <div class = "row">
-		      
-		        <a class="nav-link col-2" href="@{Clientes.form}"><img class="img" alt="pesquisa"src="/public/images/perfil.png" class="img"></a>
+#{if session['Cliente.email']}
+
+<a class="nav-link col-2" href="@{Clientes.detalhar}"><img class="img" alt="pesquisa"src="/public/images/perfil.png" class="img"></a>
+
+#{/if}
+
+#{else}
+		    <a class="nav-link col-2" href="@{Clientes.PaginaCliente}"><img class="img" alt="pesquisa"src="/public/images/perfil.png" class="img"></a>
+#{/else}	        
 		        <a class="nav-link col-2" href="@{Compras.carrinho}"> <img class="img" alt="pesquisa"src="/public/images/carrinho.png" class="img"></a>
+		        <a class="nav-link col-2" href="#">${session['Cliente.email']}</a>
+		       
 	
 		    
-      <form class="d-flex col-2">
-        <input class="form busca"  placeholder="Digite o livro que procura" >
-        <button class="btn " type="submit"> <img class="img" alt="pesquisa"src="/public/images/pesquisa.png" class="img"></button>
+      <form action="@{Compras.listarCompras}" method="GET" class="d-flex col-2">
+        <input class="form busca"  placeholder="Digite o livro que procura" type="text" name="termo" value="${termo}">
+        <button class="btn " type="submit" value="Buscar"> <img class="img" alt="pesquisa"src="/public/images/pesquisa.png" class="img"></button>
       </form>
 		      </div>
 		    </div>

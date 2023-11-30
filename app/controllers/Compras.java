@@ -60,10 +60,14 @@ public class Compras extends Controller {
 	
 	public static void salvar() {
 		List<Livro> itensCarrinhoo = Cache.get(session.getId(), List.class);
+		
 		if (itensCarrinhoo == null) {
 			PaginaInicial();
 		}
-		
+		else if(validation.hasErrors()) {
+			validation.keep();
+			PaginaInicial();
+		}
 		Compra pedido = new Compra();
 		pedido.livroslista =itensCarrinhoo ;
 		
@@ -115,9 +119,11 @@ public class Compras extends Controller {
 
 	public static void Novidades() {
 		
-		List<Livro> livri1 = Livro.find("genero = ? 1 ", "romance").first();
 		List<Livro> itensCarrinho = Cache.get(session.getId(), List.class);
-		render(livri1, itensCarrinho);
+		String termo="terror";
+		List<Livro> lili = Livro.find("lower(genero) like ?1 ","%"+ termo.toLowerCase() +"%").fetch();
+
+		render(lili, itensCarrinho);
 	}
 	public static void Terror() {
 		List<Livro> itensCarrinho = Cache.get(session.getId(), List.class);
