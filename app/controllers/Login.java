@@ -31,7 +31,10 @@ public class Login extends Controller {
 		session.clear();
 		loginn();
 	}
-	
+	public static void sair2() {
+		session.clear();
+		Compras.PaginaInicial();
+	}
 	public static void logarCliente(String email, String senha) {
 		
 		Cliente clicli = Cliente.find("email = ? 1 and senha = ?2", email, senha).first();

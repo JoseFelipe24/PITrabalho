@@ -57,7 +57,17 @@ public class Compras extends Controller {
 		Cache.set(session.getId(), itensCarrinho);
 		carrinho();
 	}
-	
+	public static void removerDoCarrinho(Long id) {
+		List<Livro> itensCarrinho = Cache.get(session.getId(), List.class);
+	 	if (itensCarrinho == null) {
+	 		itensCarrinho = new ArrayList<Livro>();
+	 	}
+	 	
+	 	Livro livrocar = Livro.findById(id);
+		itensCarrinho.remove(livrocar);
+		Cache.set(session.getId(), itensCarrinho);
+		carrinho();
+	}
 	public static void salvar() {
 		List<Livro> itensCarrinhoo = Cache.get(session.getId(), List.class);
 		
