@@ -30,16 +30,13 @@ public class Livros extends Controller{
 					"%"+ termo.toLowerCase() +"%").fetch();
 		}
 		 render(lili, termo);
-		
 	}
-	
 	
 	public static void remover (long id) {
 		Livro l = Livro.findById(id);
 		l.delete();
 		listar("");
 	}
-	
 	
 	public static void form () {
 		render();

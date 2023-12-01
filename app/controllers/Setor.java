@@ -24,9 +24,7 @@ public class Setor extends Controller {
 					"%"+ termo.toLowerCase() +"%").fetch();
 		}
 		List<Bibliotecarios> bibliotecarios2 = Bibliotecarios.findAll();
-		
 		 render(set, termo,bibliotecarios2);
-		
 	}
 	
 	public static void remover (long id) {
@@ -45,25 +43,20 @@ public class Setor extends Controller {
 		else if (idBibliotecario != null) {
 		  Bibliotecarios b = Bibliotecarios.findById(idBibliotecario);
 		 s.bibliotecariolista.add(b);
-		 
 		}
 		
 		s.save();
 		editar(s.id);
-		
 		listar("");
 	}
 	
-	
 	public static void form () {
-		
 		
 		render();
 	}
 	
 	public static void editar (long id) {
 		Setores s = Setores.findById(id);
-		
 		List<Bibliotecarios> bibliotecarios1 = Bibliotecarios.findAll();
 		renderTemplate("Setor/form.html", s,bibliotecarios1);
 		
@@ -73,7 +66,6 @@ public class Setor extends Controller {
 		
 		Setores s = Setores.findById(idSetor);
 		Bibliotecarios b = Bibliotecarios.findById(idFuncio);
-		
 		s.bibliotecariolista.remove(b);
 		
 		s.save();

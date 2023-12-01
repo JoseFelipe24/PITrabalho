@@ -23,12 +23,9 @@ public class Login extends Controller {
 		else {
 			session.put("Bibliotecarios.funcao", bibli.funcao);
 			session.put("Bibliotecarios.email", bibli.email);
-	
-			
+
 			Setor.form();
 		}
-		
-		
 	}
 	public static void sair() {
 		session.clear();
@@ -38,15 +35,11 @@ public class Login extends Controller {
 	public static void logarCliente(String email, String senha) {
 		
 		Cliente clicli = Cliente.find("email = ? 1 and senha = ?2", email, senha).first();
-		
 		if (clicli == null) {
 			loginn2();
 		}
 		else {
 			session.put("Cliente.email", clicli.email);
-			
-	
-			
 			Compras.PaginaInicial();	
 		}
 	}
