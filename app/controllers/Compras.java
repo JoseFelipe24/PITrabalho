@@ -107,6 +107,19 @@ public class Compras extends Controller {
 		 render(lili, termo);
 		
 	}
+	
+	public static void listaAjax(String termo) {
+		
+		List<Livro> lili = null;
+		if (termo == null || termo.isEmpty()) {
+			lili = Livro.findAll();
+		} else {
+			lili = Livro.find("lower(nome) like ?1 or lower(autor) like ?1",
+					"%"+ termo.toLowerCase() +"%").fetch();
+		}
+		 renderJSON(lili);
+	}
+	
 	public static void capaLivro(Long id) {
 		Livro livro = Livro.findById(id);
 		notFoundIfNull(livro);
