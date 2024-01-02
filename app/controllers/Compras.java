@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import Interface.Administrador;
@@ -97,20 +98,13 @@ public class Compras extends Controller {
 		render(pedido);
 	}
 	public static void listarCompras (String termo) {
-		List<Livro> lili = null;
-		if (termo == null || termo.isEmpty()) {
-			lili = Livro.findAll();
-		} else {
-			lili = Livro.find("lower(nome) like ?1 or lower(autor) like ?1",
-					"%"+ termo.toLowerCase() +"%").fetch();
-		}
-		 render(lili, termo);
-		
+
+		 render();
 	}
 	
 	public static void listaAjax(String termo) {
 		
-		List<Livro> lili = null;
+		List<Livro> lili = Collections.emptyList();
 		if (termo == null || termo.isEmpty()) {
 			lili = Livro.findAll();
 		} else {
@@ -119,6 +113,7 @@ public class Compras extends Controller {
 		}
 		 renderJSON(lili);
 	}
+	
 	
 	public static void capaLivro(Long id) {
 		Livro livro = Livro.findById(id);
