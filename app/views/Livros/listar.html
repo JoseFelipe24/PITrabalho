@@ -6,7 +6,6 @@
 <h2 class="text-success">#{get 'title' /}</h2>
 </center>
 
-
 <div class="container">
 <form action="@{Livros.listar}" method="GET">
 	<div class="row">
@@ -20,6 +19,7 @@
 	</div>
 </form>
 
+
 <table class="table table-dark table-striped">
   <thead>
     <tr>
@@ -28,7 +28,7 @@
       <th scope="col">autor:</th>
       <th scope="col">genero:</th>
       <th scope="col">classificação:</th>
-      <th scope="col">Data:</th>
+      <th scope="col">Data de publicação:</th>
       <th scope="col">Remover livro</th>
       <th scope="col">Editar livro</th>
 
@@ -60,3 +60,36 @@
   <a class="btn btn-outline-dark" href="@{Livros.form()}">Novo Livro</a>
  </font> 
 </center>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("form").submit(function(e) {
+	 e.preventDefault();
+	 $.ajax({
+		 type: "GET", //INFORME O TIPO DA REQUISICAO
+		 url: "@{Livros.listaAjax}", //INFORME A URL DE DESTINO
+		 data: $(this).serialize(), //ENVIA DADOS DO FORMULARIO
+		 success: function(data) {
+			 $("tbody").empty();
+			 $.each(data, function(i, item) {
+				 $("tbody").append("<tr>"+
+							"<th>"+item.id+"</th>"+
+						      "<td>"+item.nome+"</td>"+
+						      "<td>"+item.autor+"</td>"+
+						      "<td>"+item.genero+"</td>"+
+						      "<td>"+item.ano+"</td>"+
+						      "<td>"+item.classificacao+"</td>"+
+							  "<td>"+
+								"<a class='btn btn-warning' href=/pets/editar?id="+item.id+">Editar</a> "+
+							  "</td>"+
+							  "<td>"+
+								"<a class='btn btn-danger' href=/pets/remover?id="+item.id+">Remover</a>" +
+				      		"</td>"+
+				    "</tr>");
+			 });
+		 }
+	 });
+	});
+});
+
+</script>

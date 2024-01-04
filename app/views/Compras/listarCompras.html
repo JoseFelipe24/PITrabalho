@@ -180,26 +180,7 @@ margin-bottom: 1%;
 <center><h1>Nenhum livro encontrado</h1></center>
 #{/else}
 
-<script type="text/javascript">
-$(document).ready(function() {
-	$("form").submit(function(e) {
-	 e.preventDefault();
-	 $.ajax({
-		 type: "GET", //INFORME O TIPO DA REQUISICAO
-		 url: "@{Compras.listaAjax}", //INFORME A URL DE DESTINO
-		 data: $(this).serialize(), //ENVIA DADOS DO FORMULARIO
-		 success: function(data) {
-			 $("ul").empty();
-			 $.each(data, function(i, item) {
-				 $("ul").append("<li>" + item.nome + " (" + item.email + ")" +
-				 " | <a href=/lili/form?id="+ item.id +">Editar</a>" +
-				 " | <a href=/lili/remover?id="+ item.id +">Remover</a></li>");
-			 });
-		 }
-	 });
-	});
-});
-</script>
+
 
 </body>
 </html>

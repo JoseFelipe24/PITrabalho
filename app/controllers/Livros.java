@@ -3,6 +3,7 @@ package controllers;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Collections;
 import java.util.List;
 
 import Interface.Administrador;
@@ -21,21 +22,26 @@ import play.mvc.With;
 public class Livros extends Controller{
 
 	
-	public static void listar (String termo) {
-		List<Livro> lili = null;
+	public static void listar () {
+		List<Livro> lili = Livro.findAll();;
+		 render(lili);
+	}
+	public static void listaAjax(String termo) {
+		
+		List<Livro> lili = Collections.emptyList();
 		if (termo == null || termo.isEmpty()) {
 			lili = Livro.findAll();
 		} else {
 			lili = Livro.find("lower(nome) like ?1 or lower(autor) like ?1",
 					"%"+ termo.toLowerCase() +"%").fetch();
 		}
-		 render(lili, termo);
+		 renderJSON(lili);
 	}
 	
 	public static void remover (long id) {
 		Livro l = Livro.findById(id);
 		l.delete();
-		listar("");
+		listar();
 	}
 	
 	public static void form () {
@@ -56,7 +62,7 @@ public class Livros extends Controller{
 		}
 		
 		ll.save();
-		listar("");
+		listar();
 
 	}
 

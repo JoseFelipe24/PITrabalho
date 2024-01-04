@@ -98,12 +98,6 @@ public class Compras extends Controller {
 		render(pedido);
 	}
 	public static void listarCompras (String termo) {
-
-		 render();
-	}
-	
-	public static void listaAjax(String termo) {
-		
 		List<Livro> lili = Collections.emptyList();
 		if (termo == null || termo.isEmpty()) {
 			lili = Livro.findAll();
@@ -111,7 +105,7 @@ public class Compras extends Controller {
 			lili = Livro.find("lower(nome) like ?1 or lower(autor) like ?1",
 					"%"+ termo.toLowerCase() +"%").fetch();
 		}
-		 renderJSON(lili);
+		 render(lili, termo);
 	}
 	
 	
